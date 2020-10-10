@@ -8,7 +8,27 @@
 <?php
 // including the config.php file in our code to connect it to the mysql database
 
-require_once('student_reg_config.php');
+require_once('_config_.php');
+
+if(isset($_POST["create"])) {
+    echo "Dataset is received from the form entry";
+    $username = $_POST['username'];
+    $roll = $_POST['roll'];
+    $email = $_POST['email'];
+    $password = $_POST['password'];
+
+
+    //sql query to insert the data of an user into the respective fields
+    $sql = "INSERT INTO peers(username, roll, email, password) VALUES('$username', '$roll', '$email', '$password')";
+    $stmtinsert = $db->query($sql);
+
+    if ($stmtinsert) {
+        echo "Success! Row ID: {$db->insert_id}";
+    } else {
+        die("Error: {$db->errno} : {$db->error}");
+    }
+    $db->close();
+}
 ?>
 <div>
     <form action = "student_reg.php" method = "post">
