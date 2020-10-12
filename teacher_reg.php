@@ -48,6 +48,8 @@
                     <input class = "form-control"  type = "password" id = "password" name = "password" required>
                     <hr class = "mb-3">
                     <input class = "btn btn-primary" type = "submit" id = "create" name = "create" value = "signup">
+                    
+                     <p>Already have an account? <a href="login_teachers.php">Login here</a>.</p>
                 </div>
             </div>
         </div>
