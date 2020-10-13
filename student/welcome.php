@@ -1,5 +1,5 @@
 <?php
-include('session_students.php');
+include('session.php');
 ?>
 
 <html>
@@ -10,6 +10,6 @@ include('session_students.php');
 </head>
 <body>
 <h1>Welcome <?php echo $login_session?></h1>
-<h2><a href = "logout_students.php">Sign Out</a></h2>
+<h2><a href = "logout.php">Sign Out</a></h2>
 </body>
 </html>

@@ -8,7 +8,7 @@
 <?php
 // including the config.php file in our code to connect it to the mysql database
 
-    require_once('_config_.php');
+    require_once('config.php');
     if(isset($_POST["create"])) {
         echo "Dataset is received from the form entry";
         $username = $_POST['username'];
@@ -49,7 +49,7 @@
                     <hr class = "mb-3">
                     <input class = "btn btn-primary" type = "submit" id = "create" name = "create" value = "signup">
                     
-                     <p>Already have an account? <a href="login_teachers.php">Login here</a>.</p>
+                     <p>Already have an account? <a href="login.php">Login here</a>.</p>
                 </div>
             </div>
         </div>

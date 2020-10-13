@@ -4,7 +4,7 @@
 
     //redirecting it to the login page again
     if(session_destroy()) {
-        header("Location: login_students.php");
+        header("Location: login.php");
     }
 
 ?>
