@@ -1,5 +1,5 @@
 <?php
-require_once('_config_.php');
+require_once('config.php');
 session_start();
 if(isset($_POST['login'])) {
     $email = $_POST['email'];
@@ -13,7 +13,7 @@ if(isset($_POST['login'])) {
         while($rows = $result->fetch_assoc()) {
             //  session_register("email");
             $_SESSION['email'] = $rows['email'];
-            header("location: welcome_students.php");
+            header("location: welcome.php");
         }
     }
     else {
@@ -30,7 +30,7 @@ if(isset($_POST['login'])) {
 </head>
 <body>
 <div>
-    <form action = "login_students.php" method = "post">
+    <form action = "login.php" method = "post">
         <div class = "container">
             <div class = "row">
                 <div class = "col-sm-3">
@@ -48,7 +48,7 @@ if(isset($_POST['login'])) {
                     <hr class = "mb-3">
                     <input class = "btn btn-primary" type = "submit" id = "login" name = "login" value = "Login">
 
-                    <p>Do not have an account? <a href="student_reg.php">Login here</a>.</p>
+                    <p>Do not have an account? <a href="register.php">Login here</a>.</p>
                 </div>
             </div>
         </div>
