@@ -22,100 +22,37 @@
         $db->close();
     }
 ?>
-
-
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta http-equiv="x-ua-compatible" content="ie=edge">
-    <title>Teacher Login</title>
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css">
-    <!-- Google Fonts -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap">
-    <!-- Bootstrap core CSS -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/css/bootstrap.min.css" rel="stylesheet">
-    <!-- Material Design Bootstrap -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
+    <title>Login form in php</title>
+    <link rel = "stylesheet" type = "text/css" href = "bootstrap.min.css">
 </head>
-
 <body>
-    <!-- As a heading -->
-    <nav class="navbar navbar-light blue lighten-4">
-        <span class="navbar-brand">Class Management System</span>
-    </nav>
+<div>
+    <form action = "login.php" method = "post">
+        <div class = "container">
+            <div class = "row">
+                <div class = "col-sm-3">
 
-    <div class="container">
-        <div class="row">
-            <div class="col-md-3"></div>
-            <div class="col-md-6">
-                <!-- Default form login -->
-                <form class="text-center border border-light p-5" action="login.php" method="post">
+                    <h1>Login Form</h1>
+                    <p>Fill up the form with correct values.</p>
+                    <hr class = "mb-3">
 
-                    <p class="h4 mb-4">Sign in</p>
+                    <label for = "email"><b> Email </b></label>
+                    <input class = "form-control"  type = "email" id = "email" name = "email" required>
 
-                    <!-- Email -->
-                    <input type="email" name="email" id="defaultLoginFormEmail" class="form-control mb-4"
-                        placeholder="E-mail">
 
-                    <!-- Password -->
-                    <input type="password" name="password" id="defaultLoginFormPassword" class="form-control mb-4"
-                        placeholder="Password">
-
-                    <div class="d-flex justify-content-around">
-                        <div>
-                            <!-- Remember me -->
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
-                                <label class="custom-control-label" for="defaultLoginFormRemember">Remember me</label>
-                            </div>
-                        </div>
-                        <div>
-                            <!-- Forgot password -->
-                            <a href="">Forgot password?</a>
-                        </div>
-                    </div>
-
-                    <!-- Sign in button -->
-                    <button class="btn btn-info btn-block my-4" id="login" type="submit">Sign in</button>
-
-                    <!-- Register -->
-                    <p>Not a member?
-                        <a href="register.php">Register</a>
-                    </p>
-
-                    <!-- Social login -->
-                    <p>or sign in with:</p>
-
-                    <a href="#" class="mx-2" role="button"><i class="fab fa-facebook-f light-blue-text"></i></a>
-                    <a href="#" class="mx-2" role="button"><i class="fab fa-twitter light-blue-text"></i></a>
-                    <a href="#" class="mx-2" role="button"><i class="fab fa-linkedin-in light-blue-text"></i></a>
-                    <a href="#" class="mx-2" role="button"><i class="fab fa-github light-blue-text"></i></a>
-
-                </form>
-                <!-- Default form login -->
+                    <label for = "password"><b> Password </b></label>
+                    <input class = "form-control"  type = "password" id = "password" name = "password" required>
+                    <hr class = "mb-3">
+                    <input class = "btn btn-primary" type = "submit" id = "login" name = "login" value = "Login">
+                    
+                   <p>Do not have an account? <a href="register.php">Login here</a>.</p>
+                </div>
             </div>
-            <div class="col-md-3"></div>
         </div>
-    </div>
-
-
-
-    <!-- SCRIPTS -->
-    <!-- JQuery -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-    <!-- Bootstrap tooltips -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js">
-    </script>
-    <!-- Bootstrap core JavaScript -->
-    <script type="text/javascript"
-        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
-    <!-- MDB core JavaScript -->
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js">
-    </script>
+    </form>
+</div>
 </body>
-
 </html>
