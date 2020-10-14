@@ -1,5 +1,5 @@
 <?php
-    require_once('../config.php');
+    require_once('config.php');
     session_start();
     if(isset($_POST['login'])) {
         $email = $_POST['email'];
@@ -80,7 +80,7 @@
                     </div>
 
                     <!-- Sign in button -->
-                    <button class="btn btn-info btn-block my-4" id="login" type="submit">Sign in</button>
+                    <button class="btn btn-info btn-block my-4" id="login" name = "login" type="submit">Sign in</button>
 
                     <!-- Register -->
                     <p>Not a member?
