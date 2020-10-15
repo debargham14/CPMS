@@ -1,7 +1,3 @@
-<?php
-    require_once('../session.php');
-?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -9,7 +5,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <meta http-equiv="x-ua-compatible" content="ie=edge" />
-    <title>Dashboard | CPMS</title>
+    <title>Course | CPMS</title>
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css" />
     <!-- Bootstrap core CSS -->
@@ -46,8 +42,8 @@
                     <!-- Right -->
                     <ul class="navbar-nav nav-flex-icons">
                         <li class="nav-item">
-                            <a href="../logout.php" class="nav-link border border-light rounded waves-effect">
-                                <i class="fab fa-github mr-2"></i>Sign Out
+                            <a href="" class="nav-link border border-light rounded waves-effect" target="_blank">
+                                <i class="fab fa-github mr-2"></i>CMS User
                             </a>
                         </li>
                     </ul>
@@ -72,8 +68,7 @@
                 <!--Card content-->
                 <div class="card-body d-sm-flex justify-content-between">
                     <h5 class="mb-1 mb-sm-0 pt-1">
-                        Hello <?php echo $row['firstName'].' '.$row['lastName'];
-                        ?>, Welcome to Class Management System !
+                        Hello CMS User, Welcome to Class Management System !
                     </h5>
                 </div>
             </div>
@@ -82,103 +77,57 @@
 
         <div class="container-fluid">
             <div class="row wow fadeIn">
-                <div class="col-md-6">
-                    <!-- student details -->
-                    <div class="card text-white bg-primary mb-3">
-                        <div class="card-header">
-                            <i class="far fa-user-circle"></i>
-                            <?php echo $row['firstName'].' '.$row['lastName'];?>
-                            <span class="badge badge-pill badge-success">Online</span>
-                        </div>
-                        <div class="card-body">
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <h5 class="card-title">Roll Number - 001910501000</h5>
-                                    <h6>Class ID - BCSEUG12019</h6>
-                                </div>
-                                <div class="col-md-6">
-                                    <p class="card-text text-white">Enrolment ID - A4785HH9</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- student details end -->
-                    <div class="card mt-3">
-                        <div class="card-body">
-                            <h5 class="mb-1 mb-sm-0 pt-1">Upcoming Class Schedule</h5>
-                        </div>
-                        <!-- Table  -->
-                        <table class="table table-hover">
-                            <!-- Table head -->
-                            <thead class="blue lighten-4">
-                                <tr>
-                                    <th>#</th>
-                                    <th>Subject</th>
-                                    <th>Instructor</th>
-                                    <th>Time</th>
-                                </tr>
-                            </thead>
-                            <!-- Table head -->
 
-                            <!-- Table body -->
-                            <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Data Structure and Algorithms</td>
-                                    <td>Chandan Mazumdar</td>
-                                    <td>11:30 AM</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Computer Organization and Architecture</td>
-                                    <td>Ram Sarkar</td>
-                                    <td>3:30 PM</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Object Oriented Programming (C++)</td>
-                                    <td>Sanjoy Kumar Saha</td>
-                                    <td>5:30 PM</td>
-                                </tr>
-                            </tbody>
-                            <!-- Table body -->
-                        </table>
-                        <!-- Table  -->
-                    </div>
-                    <div class="row mt-3">
-                        <div class="col-md-4">
-                            <div class="card mt-3">
-                                <div class="card-body">
-                                    <h5 class="mb-1 mb-sm-0 pt-1">Students Enrolled</h5>
-                                    <h1>80</h1>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card mt-3">
-                                <div class="card-body">
-                                    <h5 class="mb-1 mb-sm-0 pt-1">Instructors</h5>
-                                    <h1>5</h1>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-4">
-                            <div class="card mt-3">
-                                <div class="card-body">
-                                    <h5 class="mb-1 mb-sm-0 pt-1">Lectures Today</h5>
-                                    <h1>7</h1>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- column ends -->
-                </div>
                 <div class="col-md-6">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="mb-1 mb-sm-0 pt-1">Notice Board</h5>
-                            <span class="badge badge-pill badge-default">3 New</span>
+                            <!-- Default form register -->
+                            <form class="text-center border border-light p-5" action="" method="post">
+
+                                <p class="h4 mb-4">Register Course</p>
+
+                                <!-- Course Name -->
+                                <input type="text" name="courseName" id="defaultRegisterCourseYearPassword"
+                                    class="form-control" placeholder="Course Name"
+                                    aria-describedby="defaultRegisterFormCourseYearHelpBlock">
+                                <small id="defaultRegisterFormCourseYearHelpBlock" class="form-text text-muted mb-4">
+                                    Enter the complete course name
+                                </small>
+
+                                <div class="form-row mb-4">
+                                    <div class="col">
+                                        <!-- Course Year -->
+                                        <input type="text" name="courseYear" id="defaultRegisterFormCourseYear"
+                                            class="form-control" placeholder="Course Year (Semester No.)">
+                                    </div>
+                                    <div class="col">
+                                        <!-- Dummy -->
+                                        <input type="text" id="defaultRegisterFormDummy" class="form-control"
+                                            placeholder="Generated Course ID">
+                                    </div>
+                                </div>
+
+                                <!-- Submit button -->
+                                <button class="btn btn-info my-4 btn-block" type="submit">Submit</button>
+
+                                <!-- Terms of service -->
+                                <p>By clicking
+                                    <em>Sign up</em> you agree to your
+                                    <a href="" target="_blank">code of conduct</a>
+
+                            </form>
+                            <!-- Default form register -->
+                        </div>
+
+
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="card">
+                        <div class="card-body">
+                            <h5 class="mb-1 mb-sm-0 pt-1">Registered Courses</h5>
+                            <span class="badge badge-pill badge-default"></span>
                         </div>
 
                         <!-- Table  -->
@@ -187,51 +136,51 @@
                             <tbody>
                                 <tr>
                                     <th scope="row">1</th>
-                                    <td>Notice Title 1</td>
+                                    <td>Course Title 1</td>
                                     <td>
-                                        This is a demo notice to be populated with content as it
+                                        This is a demo Course to be populated with content as it
                                         arrives
                                     </td>
                                     <td>29-10-2020</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">2</th>
-                                    <td>Notice Title 2</td>
-                                    <td>This is a demo notice to be populated with content</td>
+                                    <td>Course Title 2</td>
+                                    <td>This is a demo Course to be populated with content</td>
                                     <td>29-10-2020</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">3</th>
-                                    <td>Notice Title 3</td>
+                                    <td>Course Title 3</td>
                                     <td>
-                                        This is a demo notice to be populated with content as it
+                                        This is a demo Course to be populated with content as it
                                         arrives
                                     </td>
                                     <td>29-10-2020</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">4</th>
-                                    <td>Notice Title 4</td>
+                                    <td>Course Title 4</td>
                                     <td>
-                                        This is a demo notice to be populated with content as it
+                                        This is a demo Course to be populated with content as it
                                         arrives
                                     </td>
                                     <td>29-10-2020</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">5</th>
-                                    <td>Notice Title 5</td>
+                                    <td>Course Title 5</td>
                                     <td>
-                                        This is a demo notice to be populated with content as it
+                                        This is a demo Course to be populated with content as it
                                         arrives
                                     </td>
                                     <td>29-10-2020</td>
                                 </tr>
                                 <tr>
                                     <th scope="row">6</th>
-                                    <td>Notice Title 6</td>
+                                    <td>Course Title 6</td>
                                     <td>
-                                        This is a demo notice to be populated with content as it
+                                        This is a demo Course to be populated with content as it
                                         arrives
                                     </td>
                                     <td>29-10-2020</td>

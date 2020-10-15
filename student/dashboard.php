@@ -60,7 +60,7 @@ include('../session.php');
         <!-- Sidebar -->
         <div class="sidebar-fixed position-fixed">
             <a class="waves-effect">
-                <img src="./assets/newimg/jucmslogo.png" class="img-fluid" alt="" />
+                <img src="../assets/newimg/jucmslogo.png" class="img-fluid" alt="" />
 
             </a>
 
