@@ -1,5 +1,5 @@
 <?php
-    require_once('session.php');
+    require_once('../session.php');
 ?>
 
 <!DOCTYPE html>
@@ -89,7 +89,8 @@
                 <!--Card content-->
                 <div class="card-body d-sm-flex justify-content-between">
                     <h5 class="mb-1 mb-sm-0 pt-1">
-                        Hello <?php echo $login_session?>, Welcome to Class Management System !
+                        Hello <?php echo $row['firstName'].' '.$row['lastName'];
+                        ?>, Welcome to Class Management System !
                     </h5>
                 </div>
             </div>
@@ -103,7 +104,7 @@
                     <div class="card text-white bg-primary mb-3">
                         <div class="card-header">
                             <i class="far fa-user-circle"></i>
-                            <?php echo $login_session?>
+                            <?php echo $row['firstName'].' '.$row['lastName'];?>
                             <span class="badge badge-pill badge-success">Online</span>
                         </div>
                         <div class="card-body">

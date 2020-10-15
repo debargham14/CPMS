@@ -53,15 +53,15 @@
 
                     <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
                         <!-- Login Form -->
-                        <form class="text-center border border-light p-5" action="#!">
+                        <form class="text-center border border-light p-5" action="loginHandler.php" method="post">
 
                             <!-- Email -->
-                            <input type="email" id="defaultLoginFormEmail" class="form-control mb-4"
+                            <input type="email" name="email" id="defaultLoginFormEmail" class="form-control mb-4"
                                 placeholder="E-mail">
 
                             <!-- Password -->
-                            <input type="password" id="defaultLoginFormPassword" class="form-control mb-4"
-                                placeholder="Password">
+                            <input type="password" name="password" id="defaultLoginFormPassword"
+                                class="form-control mb-4" placeholder="Password">
 
                             <div class="d-flex justify-content-around">
                                 <div>
@@ -75,27 +75,12 @@
                                 </div>
                                 <div>
                                     <!-- Forgot password -->
-                                    <a href="">Forgot password?</a>
+                                    <a href="#">Forgot password?</a>
                                 </div>
                             </div>
 
                             <!-- Login button -->
-                            <button class="btn btn-info btn-block my-4" type="submit">Login</button>
-
-                            <!-- Register -->
-                            <p>Not a member?
-                                <a href="">Register</a>
-                            </p>
-
-                            <!-- Social login -->
-                            <p>or login with:</p>
-
-                            <a href="#" class="mx-2" role="button"><i class="fab fa-facebook-f light-blue-text"></i></a>
-                            <a href="#" class="mx-2" role="button"><i class="fab fa-twitter light-blue-text"></i></a>
-                            <a href="#" class="mx-2" role="button"><i
-                                    class="fab fa-linkedin-in light-blue-text"></i></a>
-                            <a href="#" class="mx-2" role="button"><i class="fab fa-github light-blue-text"></i></a>
-
+                            <button class="btn btn-info btn-block my-4" name="login" type="submit">Login</button>
                         </form>
                         <!-- Login Form -->
 
@@ -103,14 +88,14 @@
                     <div class="tab-pane fade" id="register" role="tabpanel" aria-labelledby="register-tab">
 
                         <!-- Register Form -->
-                        <form class="text-center border border-light p-5" action="#!">
+                        <form class="text-center border border-light p-5" action="registerHandler.php" method="post">
                             <div class="form-row mb-4">
                                 <div class="col"></div>
                                 <div class="col">
                                     <!-- Register as Student-->
                                     <div class="custom-control custom-radio custom-control-inline">
                                         <input type="radio" class="custom-control-input" id="defaultInline1"
-                                            name="inlineDefaultRadiosExample" checked>
+                                            name="studentRole" checked>
                                         <label class="custom-control-label" for="defaultInline1">Student</label>
                                     </div>
                                 </div>
@@ -118,7 +103,7 @@
                                     <!-- Register as Teacher-->
                                     <div class="custom-control custom-radio custom-control-inline">
                                         <input type="radio" class="custom-control-input" id="defaultInline2"
-                                            name="inlineDefaultRadiosExample">
+                                            name="teacherRole">
                                         <label class="custom-control-label" for="defaultInline2">Teacher</label>
                                     </div>
                                 </div>
@@ -128,43 +113,40 @@
                             <div class="form-row mb-4">
                                 <div class="col">
                                     <!-- First name -->
-                                    <input type="text" id="defaultRegisterFormFirstName" class="form-control"
-                                        placeholder="First name">
+                                    <input type="text" name="firstName" id="defaultRegisterFormFirstName"
+                                        class="form-control" placeholder="First name">
                                 </div>
                                 <div class="col">
                                     <!-- Last name -->
-                                    <input type="text" id="defaultRegisterFormLastName" class="form-control"
-                                        placeholder="Last name">
+                                    <input type="text" name="lastName" id="defaultRegisterFormLastName"
+                                        class="form-control" placeholder="Last name">
                                 </div>
                             </div>
 
+                            <!-- Roll Number -->
+                            <input type="number" name="roll" id="defaultRegisterFormRoll" class="form-control mb-4"
+                                placeholder="Roll Number">
+
                             <!-- E-mail -->
-                            <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4"
+                            <input type="email" name="email" id="defaultRegisterFormEmail" class="form-control mb-4"
                                 placeholder="E-mail">
 
                             <!-- Password -->
-                            <input type="password" id="defaultRegisterFormPassword" class="form-control"
+                            <input type="password" name="password" id="defaultRegisterFormPassword" class="form-control"
                                 placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
                             <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
                                 At least 8 characters and 1 digit
                             </small>
 
                             <!-- Phone number -->
-                            <input type="text" id="defaultRegisterPhonePassword" class="form-control"
+                            <input type="text" name="phone" id="defaultRegisterPhonePassword" class="form-control"
                                 placeholder="Phone number" aria-describedby="defaultRegisterFormPhoneHelpBlock">
                             <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
                                 Optional - for two step authentication
                             </small>
 
-                            <!-- Newsletter -->
-                            <div class="custom-control custom-checkbox">
-                                <input type="checkbox" class="custom-control-input" id="defaultRegisterFormNewsletter">
-                                <label class="custom-control-label" for="defaultRegisterFormNewsletter">Subscribe to our
-                                    newsletter</label>
-                            </div>
-
                             <!-- Register button -->
-                            <button class="btn btn-info my-4 btn-block" type="submit">Register</button>
+                            <button class="btn btn-info my-4 btn-block" name="register" type="submit">Register</button>
 
                             <!-- Social register -->
                             <p>or register with:</p>
