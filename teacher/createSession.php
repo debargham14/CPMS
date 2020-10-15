@@ -24,7 +24,7 @@
             <div class="container-fluid">
                 <!-- Brand -->
                 <a class="navbar-brand waves-effect">
-                    <strong class="blue-text">Class Management System</strong>
+                    <strong class="blue-text">Teacher Portal</strong>
                 </a>
 
                 <!-- Collapse -->
@@ -53,9 +53,30 @@
         <!-- Navbar -->
 
         <!-- Sidebar -->
-        <?php
-            require_once('./sidebar.php');
-        ?>
+        <div class="sidebar-fixed position-fixed">
+            <a class="waves-effect">
+                <img src="../assets/newimg/jucmslogo.png" class="img-fluid" alt="" />
+
+            </a>
+
+            <div class="list-group list-group-flush">
+                <a href="./dashboard.php" class="list-group-item list-group-item-action waves-effect">
+                    <i class="fas fa-chart-pie mr-3"></i>Dashboard
+                </a>
+                <a href="#" class="list-group-item list-group-item-action waves-effect">
+                    <i class="fas fa-user mr-3"></i>Profile</a>
+                <a href="./createCourse.php" class="list-group-item list-group-item-action waves-effect">
+                    <i class="fas fa-map mr-3"></i>Add New Course</a>
+                <a href="createBatch.php" class="list-group-item list-group-item-action waves-effect">
+                    <i class="fas fa-users mr-3"></i>Add New Batch</a>
+                <a href="createSession.php" class="list-group-item active waves-effect">
+                    <i class="fas fa-tv mr-3"></i>Schedule Session</a>
+                <a href="./notice.php" class="list-group-item list-group-item-action waves-effect">
+                    <i class="fas fa-map mr-3"></i>Notice</a>
+                <a href="./attendance.php" class="list-group-item list-group-item-action waves-effect">
+                    <i class="fas fa-money-bill-alt mr-3"></i>Attendance</a>
+            </div>
+        </div>
         <!-- Sidebar -->
     </header>
     <!--Main Navigation-->
@@ -81,7 +102,7 @@
                 <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
-                            <h5 class="mb-1 mb-sm-0 pt-1">Batch Page</h5>
+                            <h5 class="mb-1 mb-sm-0 pt-1">Schedule New Lecture</h5>
                         </div>
 
 

@@ -29,7 +29,7 @@ include('../session.php');
             <div class="container-fluid">
                 <!-- Brand -->
                 <a class="navbar-brand waves-effect">
-                    <strong class="blue-text">Class Management System</strong>
+                    <strong class="blue-text">Student Portal</strong>
                 </a>
 
                 <!-- Collapse -->
