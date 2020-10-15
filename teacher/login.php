@@ -13,7 +13,7 @@
             while($rows = $result->fetch_assoc()) {
                 //  session_register("email");
                 $_SESSION['email'] = $rows['email'];
-                header("location: welcome.php");
+                header("location: dashboard.php");
             }
         }
         else {
