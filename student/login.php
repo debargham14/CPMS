@@ -1,5 +1,5 @@
 <?php
-require_once('config.php');
+require_once('../config.php');
 session_start();
 if(isset($_POST['login'])) {
     $email = $_POST['email'];
@@ -24,35 +24,38 @@ if(isset($_POST['login'])) {
 ?>
 <!doctype html>
 <html lang="en">
+
 <head>
     <title>Login form in php</title>
-    <link rel = "stylesheet" type = "text/css" href = "bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
 </head>
+
 <body>
-<div>
-    <form action = "login.php" method = "post">
-        <div class = "container">
-            <div class = "row">
-                <div class = "col-sm-3">
+    <div>
+        <form action="login.php" method="post">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-3">
 
-                    <h1>Login Form</h1>
-                    <p>Fill up the form with correct values.</p>
-                    <hr class = "mb-3">
+                        <h1>Login Form</h1>
+                        <p>Fill up the form with correct values.</p>
+                        <hr class="mb-3">
 
-                    <label for = "email"><b> Email </b></label>
-                    <input class = "form-control"  type = "email" id = "email" name = "email" required>
+                        <label for="email"><b> Email </b></label>
+                        <input class="form-control" type="email" id="email" name="email" required>
 
 
-                    <label for = "password"><b> Password </b></label>
-                    <input class = "form-control"  type = "password" id = "password" name = "password" required>
-                    <hr class = "mb-3">
-                    <input class = "btn btn-primary" type = "submit" id = "login" name = "login" value = "Login">
+                        <label for="password"><b> Password </b></label>
+                        <input class="form-control" type="password" id="password" name="password" required>
+                        <hr class="mb-3">
+                        <input class="btn btn-primary" type="submit" id="login" name="login" value="Login">
 
-                    <p>Do not have an account? <a href="register.php">Login here</a>.</p>
+                        <p>Do not have an account? <a href="register.php">Login here</a>.</p>
+                    </div>
                 </div>
             </div>
-        </div>
-    </form>
-</div>
+        </form>
+    </div>
 </body>
+
 </html>
