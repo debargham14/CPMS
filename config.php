@@ -1,7 +1,7 @@
 <?php
     $db_host = 'localhost';
     $db_user = 'root';
-    $db_pass = 'Debmukh@2206';
+    $db_pass = '';
     $db_name = 'cpms';
 
     $db = new mysqli($db_host, $db_user, $db_pass, $db_name);
