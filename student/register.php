@@ -2,7 +2,7 @@
 <html>
 
 <head>
-    <title>User Registration in php</title>
+    <title>Student Registration</title>
     <link rel="stylesheet" type="text/css" href="bootstrap.min.css">
 </head>
 
