@@ -1,5 +1,6 @@
 <!DOCTYPE HTML>
 <html>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,7 +15,14 @@
     <!-- Material Design Bootstrap -->
     <link href="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/css/mdb.min.css" rel="stylesheet">
 </head>
+
 <body>
+
+    <!-- As a heading -->
+    <nav class="navbar navbar-light blue lighten-4">
+        <span class="navbar-brand">Class Management System</span>
+    </nav>
+
     <div class="container">
 
         <div class="row">
@@ -27,14 +35,18 @@
 
                     <!-- Login Tab -->
                     <li class="nav-item">
-                        <a class="nav-link active" id="login-tab" data-toggle="tab" href="#login" role="tab" aria-controls="login"
-                           aria-selected="true"><h4 class="h4-responsive"><strong>Login</strong></h4></a>
+                        <a class="nav-link active" id="login-tab" data-toggle="tab" href="#login" role="tab"
+                            aria-controls="login" aria-selected="true">
+                            <h4 class="h4-responsive"><strong>Login</strong></h4>
+                        </a>
                     </li>
 
                     <!-- Register Tab -->
                     <li class="nav-item">
-                        <a class="nav-link" id="register-tab" data-toggle="tab" href="#register" role="tab" aria-controls="register"
-                           aria-selected="false"><h4 class="h4-responsive"><strong>Register</strong></h4></a>
+                        <a class="nav-link" id="register-tab" data-toggle="tab" href="#register" role="tab"
+                            aria-controls="register" aria-selected="false">
+                            <h4 class="h4-responsive"><strong>Register</strong></h4>
+                        </a>
                     </li>
                 </ul>
                 <div class="tab-content" id="myTabContent">
@@ -44,17 +56,21 @@
                         <form class="text-center border border-light p-5" action="#!">
 
                             <!-- Email -->
-                            <input type="email" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="E-mail">
+                            <input type="email" id="defaultLoginFormEmail" class="form-control mb-4"
+                                placeholder="E-mail">
 
                             <!-- Password -->
-                            <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password">
+                            <input type="password" id="defaultLoginFormPassword" class="form-control mb-4"
+                                placeholder="Password">
 
                             <div class="d-flex justify-content-around">
                                 <div>
                                     <!-- Remember me -->
                                     <div class="custom-control custom-checkbox">
-                                        <input type="checkbox" class="custom-control-input" id="defaultLoginFormRemember">
-                                        <label class="custom-control-label" for="defaultLoginFormRemember">Remember me</label>
+                                        <input type="checkbox" class="custom-control-input"
+                                            id="defaultLoginFormRemember">
+                                        <label class="custom-control-label" for="defaultLoginFormRemember">Remember
+                                            me</label>
                                     </div>
                                 </div>
                                 <div>
@@ -76,7 +92,8 @@
 
                             <a href="#" class="mx-2" role="button"><i class="fab fa-facebook-f light-blue-text"></i></a>
                             <a href="#" class="mx-2" role="button"><i class="fab fa-twitter light-blue-text"></i></a>
-                            <a href="#" class="mx-2" role="button"><i class="fab fa-linkedin-in light-blue-text"></i></a>
+                            <a href="#" class="mx-2" role="button"><i
+                                    class="fab fa-linkedin-in light-blue-text"></i></a>
                             <a href="#" class="mx-2" role="button"><i class="fab fa-github light-blue-text"></i></a>
 
                         </form>
@@ -92,14 +109,16 @@
                                 <div class="col">
                                     <!-- Register as Student-->
                                     <div class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" class="custom-control-input" id="defaultInline1" name="inlineDefaultRadiosExample" checked>
+                                        <input type="radio" class="custom-control-input" id="defaultInline1"
+                                            name="inlineDefaultRadiosExample" checked>
                                         <label class="custom-control-label" for="defaultInline1">Student</label>
                                     </div>
                                 </div>
                                 <div class="col">
                                     <!-- Register as Teacher-->
                                     <div class="custom-control custom-radio custom-control-inline">
-                                        <input type="radio" class="custom-control-input" id="defaultInline2" name="inlineDefaultRadiosExample">
+                                        <input type="radio" class="custom-control-input" id="defaultInline2"
+                                            name="inlineDefaultRadiosExample">
                                         <label class="custom-control-label" for="defaultInline2">Teacher</label>
                                     </div>
                                 </div>
@@ -109,25 +128,30 @@
                             <div class="form-row mb-4">
                                 <div class="col">
                                     <!-- First name -->
-                                    <input type="text" id="defaultRegisterFormFirstName" class="form-control" placeholder="First name">
+                                    <input type="text" id="defaultRegisterFormFirstName" class="form-control"
+                                        placeholder="First name">
                                 </div>
                                 <div class="col">
                                     <!-- Last name -->
-                                    <input type="text" id="defaultRegisterFormLastName" class="form-control" placeholder="Last name">
+                                    <input type="text" id="defaultRegisterFormLastName" class="form-control"
+                                        placeholder="Last name">
                                 </div>
                             </div>
 
                             <!-- E-mail -->
-                            <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4" placeholder="E-mail">
+                            <input type="email" id="defaultRegisterFormEmail" class="form-control mb-4"
+                                placeholder="E-mail">
 
                             <!-- Password -->
-                            <input type="password" id="defaultRegisterFormPassword" class="form-control" placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
+                            <input type="password" id="defaultRegisterFormPassword" class="form-control"
+                                placeholder="Password" aria-describedby="defaultRegisterFormPasswordHelpBlock">
                             <small id="defaultRegisterFormPasswordHelpBlock" class="form-text text-muted mb-4">
                                 At least 8 characters and 1 digit
                             </small>
 
                             <!-- Phone number -->
-                            <input type="text" id="defaultRegisterPhonePassword" class="form-control" placeholder="Phone number" aria-describedby="defaultRegisterFormPhoneHelpBlock">
+                            <input type="text" id="defaultRegisterPhonePassword" class="form-control"
+                                placeholder="Phone number" aria-describedby="defaultRegisterFormPhoneHelpBlock">
                             <small id="defaultRegisterFormPhoneHelpBlock" class="form-text text-muted mb-4">
                                 Optional - for two step authentication
                             </small>
@@ -135,7 +159,8 @@
                             <!-- Newsletter -->
                             <div class="custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" id="defaultRegisterFormNewsletter">
-                                <label class="custom-control-label" for="defaultRegisterFormNewsletter">Subscribe to our newsletter</label>
+                                <label class="custom-control-label" for="defaultRegisterFormNewsletter">Subscribe to our
+                                    newsletter</label>
                             </div>
 
                             <!-- Register button -->
@@ -146,7 +171,8 @@
 
                             <a href="#" class="mx-2" role="button"><i class="fab fa-facebook-f light-blue-text"></i></a>
                             <a href="#" class="mx-2" role="button"><i class="fab fa-twitter light-blue-text"></i></a>
-                            <a href="#" class="mx-2" role="button"><i class="fab fa-linkedin-in light-blue-text"></i></a>
+                            <a href="#" class="mx-2" role="button"><i
+                                    class="fab fa-linkedin-in light-blue-text"></i></a>
                             <a href="#" class="mx-2" role="button"><i class="fab fa-github light-blue-text"></i></a>
 
                             <hr>
@@ -170,13 +196,17 @@
     </div>
 
 
-<!-- JQuery -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-<!-- Bootstrap tooltips -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js"></script>
-<!-- Bootstrap core JavaScript -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
-<!-- MDB core JavaScript -->
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js"></script>
+    <!-- JQuery -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <!-- Bootstrap tooltips -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.4/umd/popper.min.js">
+    </script>
+    <!-- Bootstrap core JavaScript -->
+    <script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <!-- MDB core JavaScript -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.19.1/js/mdb.min.js">
+    </script>
 </body>
+
 </html>

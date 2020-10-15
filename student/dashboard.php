@@ -47,7 +47,7 @@ include('session.php');
                     <!-- Right -->
                     <ul class="navbar-nav nav-flex-icons">
                         <li class="nav-item">
-                            <a href="logout.php" class="nav-link border border-light rounded waves-effect">
+                            <a href="../logout.php" class="nav-link border border-light rounded waves-effect">
                                 <i class="fab fa-github mr-2"></i>Sign Out
                             </a>
                         </li>
