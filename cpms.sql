@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 16, 2020 at 05:47 PM
+-- Generation Time: Oct 17, 2020 at 12:18 AM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -113,6 +113,27 @@ INSERT INTO `lecture` (`id`, `batchID`, `startTime`, `endTime`, `courseID`, `tea
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `notice`
+--
+
+CREATE TABLE `notice` (
+  `id` int(11) NOT NULL,
+  `content` longtext NOT NULL,
+  `batchTarget` varchar(255) NOT NULL,
+  `postedBy` varchar(255) NOT NULL,
+  `createdAt` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp()
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data for table `notice`
+--
+
+INSERT INTO `notice` (`id`, `content`, `batchTarget`, `postedBy`, `createdAt`) VALUES
+(1, 'This is a demo notice !!!', 'BECSE20192023', 'Debargha Sir', '2020-10-16 16:56:36');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `student`
 --
 
@@ -189,6 +210,12 @@ ALTER TABLE `lecture`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `notice`
+--
+ALTER TABLE `notice`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `student`
 --
 ALTER TABLE `student`
@@ -227,6 +254,12 @@ ALTER TABLE `course`
 --
 ALTER TABLE `lecture`
   MODIFY `id` int(200) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
+--
+-- AUTO_INCREMENT for table `notice`
+--
+ALTER TABLE `notice`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `student`
