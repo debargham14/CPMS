@@ -2,15 +2,16 @@
     // require_once('../config.php');
     require_once('../session.php');
     $done = 0;
-
+    $name = $firstName.' '.$lastName;
+    
     if(isset($_POST["courseRegister"])) {
         // echo "Data set is received from course entry";
         $courseName = $_POST["courseName"];
         $courseYear = $_POST["courseYear"];
         $courseID   = $_POST["courseID"];
-        $name = $firstName.' '.$lastName;
         
-        $sql1 = "INSERT INTO course (courseName, courseYear, courseID, createdBy) VALUES ('$courseName', '$courseYear', '$courseID', '$name')";
+        
+        $sql1 = "INSERT INTO course (courseName, courseYear, courseID, createdBy) VALUES ('$courseName', '$courseYear', '$courseID', '$user_check')";
         $stmtinsert = $db->query($sql1);
         
 
@@ -204,17 +205,19 @@
                                 <!-- Fetching registered courses from db -->
 
                                 <?php
-                                    $sql2 = "SELECT * from course";
+                                    $sql2 = "SELECT * from course WHERE createdBy = '$user_check'";
                                     
                                         $result = $db->query($sql2);
                                         if($result && $result->num_rows > 0) {
-                                                while($row = $result->fetch_assoc()) {
+                                            $i = 1;    
+                                            while($row = $result->fetch_assoc()) {
                                                     echo "<tr>";
-                                                    echo "<th scope = 'row'>" . $row['id'] . "</th>";
+                                                    echo "<th scope = 'row'>" . $i . "</th>";
                                                     echo "<td>" . $row['courseID'] . "</th>";
                                                     echo "<td>" . $row['courseName'] . "</td>";
-                                                    echo "<td>" . $row['createdBy'] . "</td>";
+                                                    echo "<td>" . $name. "</td>";
                                                     echo "</tr>";
+                                                    $i = $i + 1;
                                             }
                         
                                         }
