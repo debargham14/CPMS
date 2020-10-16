@@ -67,11 +67,11 @@
                 <a href="./dashboard.php" class="list-group-item active waves-effect">
                     <i class="fas fa-chart-pie mr-3"></i>Dashboard
                 </a>
-                <a href="#" class="list-group-item list-group-item-action waves-effect">
+                <a href="./profile.php" class="list-group-item list-group-item-action waves-effect">
                     <i class="fas fa-user mr-3"></i>Profile</a>
                 <a href="./createCourse.php" class="list-group-item list-group-item-action waves-effect">
                     <i class="fas fa-map mr-3"></i>Add New Course</a>
-                <a href="createBatch.php" class="list-group-item list-group-item-action waves-effect">
+                <a href="createBatch2.php" class="list-group-item list-group-item-action waves-effect">
                     <i class="fas fa-users mr-3"></i>Add New Batch</a>
                 <a href="createSession.php" class="list-group-item list-group-item-action waves-effect">
                     <i class="fas fa-tv mr-3"></i>Schedule Session</a>
@@ -111,7 +111,7 @@
                             <?php echo $row['firstName'].' '.$row['lastName'];?>
                             <span class="badge badge-pill badge-success">Online</span>
                         </div>
-                        <div class="card-body">
+                        <!-- <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6">
                                     <h5 class="card-title">Roll Number - 001910501000</h5>
@@ -121,7 +121,7 @@
                                     <p class="card-text text-white">Enrolment ID - A4785HH9</p>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <!-- student details end -->
                     <div class="card mt-3">

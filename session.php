@@ -4,6 +4,8 @@
     session_start();
 
     $user_check = $_SESSION['email'];
+  //  $phone      = $_SESSION['phone'];
+
     $role = $_SESSION['role'];
 
     $ses_sql = $db->query("SELECT * FROM $role WHERE email = '$user_check' ");
