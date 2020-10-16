@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 16, 2020 at 12:08 AM
+-- Generation Time: Oct 16, 2020 at 05:47 PM
 -- Server version: 10.4.11-MariaDB
 -- PHP Version: 7.4.1
 
@@ -53,7 +53,7 @@ CREATE TABLE `batch` (
   `batchID` varchar(255) NOT NULL,
   `degree` varchar(255) NOT NULL,
   `department` varchar(255) NOT NULL,
-  `currentYear` int(11) NOT NULL,
+  `currentSem` int(11) NOT NULL,
   `startYear` int(11) NOT NULL,
   `endYear` int(11) NOT NULL,
   `teacher` varchar(255) NOT NULL,
@@ -64,7 +64,7 @@ CREATE TABLE `batch` (
 -- Dumping data for table `batch`
 --
 
-INSERT INTO `batch` (`id`, `batchID`, `degree`, `department`, `currentYear`, `startYear`, `endYear`, `teacher`, `timestamp`) VALUES
+INSERT INTO `batch` (`id`, `batchID`, `degree`, `department`, `currentSem`, `startYear`, `endYear`, `teacher`, `timestamp`) VALUES
 (1, 'BECSE20192023', 'BE', 'CSE', 1, 2019, 2023, 'debargham15@gmail.com', '2020-10-15 21:19:09');
 
 -- --------------------------------------------------------
@@ -76,16 +76,17 @@ INSERT INTO `batch` (`id`, `batchID`, `degree`, `department`, `currentYear`, `st
 CREATE TABLE `course` (
   `id` int(11) NOT NULL,
   `courseName` varchar(255) NOT NULL,
-  `courseYear` int(11) NOT NULL,
-  `courseID` varchar(255) NOT NULL
+  `courseSem` int(11) NOT NULL,
+  `courseID` varchar(255) NOT NULL,
+  `createdBy` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 --
 -- Dumping data for table `course`
 --
 
-INSERT INTO `course` (`id`, `courseName`, `courseYear`, `courseID`) VALUES
-(1, 'Data Structure and Algorithms', 2, 'DSA2');
+INSERT INTO `course` (`id`, `courseName`, `courseSem`, `courseID`, `createdBy`) VALUES
+(1, 'DSA', 2, 'DSA2', 'Debargha Sir');
 
 -- --------------------------------------------------------
 

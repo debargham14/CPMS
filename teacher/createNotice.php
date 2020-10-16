@@ -1,3 +1,32 @@
+<?php
+    // require_once('../config.php');
+    require_once('../session.php');
+    $name = $firstName.' '.$lastName;
+    
+    if(isset($_POST["noticeSubmit"])) {
+        // echo "Data set is received from course entry";
+        $degreeName = $_POST["degreeName"];
+        $deptName = $_POST["deptName"];
+        $batchStartYear   = $_POST["batchStartYear"];
+        $batchEndYear   = $_POST["batchEndYear"];
+        $content = $_POST["content"];
+
+        $batchTarget = $degreeName.$deptName.$batchStartYear.$batchEndYear;
+        
+        $sql1 = "INSERT INTO notice (content, batchTarget, postedBy) VALUES ('$content', '$batchTarget', '$name')";
+        $stmtinsert = $db->query($sql1);
+        
+
+        if($stmtinsert) {
+            // echo "Success! Row ID: {$db->insert_id}";
+            $done = 1;
+        }
+        else {
+            die("Error: {$db->errno} : {$db->error}");
+        }
+        
+    }
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -56,7 +85,6 @@
         <div class="sidebar-fixed position-fixed">
             <a class="waves-effect">
                 <img src="../assets/newimg/jucmslogo.png" class="img-fluid" alt="" />
-
             </a>
 
             <div class="list-group list-group-flush">
@@ -71,7 +99,7 @@
                     <i class="fas fa-users mr-3"></i>Add New Batch</a>
                 <a href="createSession.php" class="list-group-item list-group-item-action waves-effect">
                     <i class="fas fa-tv mr-3"></i>Schedule Session</a>
-                <a href="" class="list-group-item active waves-effect">
+                <a href="./createNotice.php" class="list-group-item active waves-effect">
                     <i class="fas fa-map mr-3"></i>Notice</a>
                 <a href="./attendance.php" class="list-group-item list-group-item-action waves-effect">
                     <i class="fas fa-money-bill-alt mr-3"></i>Attendance</a>
@@ -99,7 +127,68 @@
         <div class="container-fluid">
             <div class="row wow fadeIn">
 
-                <div class="col-md-12">
+                <div class="col-md-6">
+                    <div class="card">
+                        <!-- Default form register -->
+                        <form class="text-center border border-light p-5" action="" method="post">
+
+                            <p class="h4 mb-4">Post New Notice</p>
+
+                            <!-- Course Name -->
+                            <div class="form-row mb-4">
+                                <div class="col">
+                                    <select name="degreeName" class="browser-default custom-select">
+                                        <option selected>Select Degree</option>
+                                        <option value="BE">BE</option>
+                                        <option value="ME">ME</option>
+                                        <option value="PhD">PhD</option>
+                                    </select>
+                                </div>
+                                <div class="col">
+                                    <select name="deptName" class="browser-default custom-select">
+                                        <option selected>Select Department</option>
+                                        <option value="CSE">Computer Science and Engineering</option>
+                                        <option value="ME">Mechanical Engineering</option>
+                                        <option value="EE">Electrical Engineering</option>
+                                    </select>
+                                </div>
+                            </div>
+
+                            <div class="form-row mb-4">
+                                <div class="col">
+                                    <!-- Course Year -->
+                                    <input type="number" name="batchStartYear" id="defaultRegisterFormCourseYear"
+                                        class="form-control" placeholder="Batch Start Year">
+                                </div>
+                                <div class="col">
+                                    <!-- Course Year -->
+                                    <input type="number" name="batchEndYear" id="defaultRegisterFormCourseYear"
+                                        class="form-control" placeholder="Batch End Year">
+                                </div>
+                            </div>
+                            <!-- <div class="form-row mb-4"> -->
+                            <div class="form-group purple-border">
+                                <label for="exampleFormControlTextarea4">Notice Description</label>
+                                <textarea class="form-control" name="content" id="exampleFormControlTextarea4" rows="10"
+                                    placeholder="Start writing your notice here..."></textarea>
+                            </div>
+                            <!-- </div> -->
+
+                            <!-- Submit button -->
+                            <button class=" btn btn-info my-4 btn-block" name="noticeSubmit" type="submit">Post
+                                Notice</button>
+
+                            <!-- Terms of service -->
+                            <p>By clicking
+                                <em>Sign up</em> you agree to your
+                                <a href="" target="_blank">code of conduct</a>
+
+                        </form>
+                        <!-- Default form register -->
+                    </div>
+                </div>
+
+                <div class="col-md-6">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="mb-1 mb-sm-0 pt-1">Notice Board</h5>

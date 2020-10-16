@@ -7,11 +7,11 @@
     if(isset($_POST["courseRegister"])) {
         // echo "Data set is received from course entry";
         $courseName = $_POST["courseName"];
-        $courseYear = $_POST["courseYear"];
+        $courseSem = $_POST["courseSem"];
         $courseID   = $_POST["courseID"];
         
         
-        $sql1 = "INSERT INTO course (courseName, courseYear, courseID, createdBy) VALUES ('$courseName', '$courseYear', '$courseID', '$user_check')";
+        $sql1 = "INSERT INTO course (courseName, courseSem, courseID, createdBy) VALUES ('$courseName', '$courseSem', '$courseID', '$user_check')";
         $stmtinsert = $db->query($sql1);
         
 
@@ -99,7 +99,7 @@
                     <i class="fas fa-users mr-3"></i>Add New Batch</a>
                 <a href="createSession.php" class="list-group-item list-group-item-action waves-effect">
                     <i class="fas fa-tv mr-3"></i>Schedule Session</a>
-                <a href="./notice.php" class="list-group-item list-group-item-action waves-effect">
+                <a href="./createNotice.php" class="list-group-item list-group-item-action waves-effect">
                     <i class="fas fa-map mr-3"></i>Notice</a>
                 <a href="./attendance.php" class="list-group-item list-group-item-action waves-effect">
                     <i class="fas fa-money-bill-alt mr-3"></i>Attendance</a>
@@ -145,8 +145,8 @@
                         <div class="form-row mb-4">
                             <div class="col">
                                 <!-- Course Year -->
-                                <input type="text" name="courseYear" id="defaultRegisterFormCourseYear"
-                                    class="form-control" placeholder="Course Year (Semester No.)">
+                                <input type="text" name="courseSem" id="defaultRegisterFormCourseYear"
+                                    class="form-control" placeholder="Course Semester (eg. 1,2,3..)">
                             </div>
                             <div class="col">
                                 <!-- Dummy -->
