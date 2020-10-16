@@ -1,3 +1,29 @@
+<?php
+    // require_once('../config.php');
+    require_once('../session.php');
+    $done = 0;
+
+    if(isset($_POST["courseRegister"])) {
+        // echo "Data set is received from course entry";
+        $courseName = $_POST["courseName"];
+        $courseYear = $_POST["courseYear"];
+        $courseID   = $_POST["courseID"];
+        
+        $sql1 = "INSERT INTO course (courseName, courseYear, courseID) VALUES ('$courseName', '$courseYear', '$courseID')";
+        $stmtinsert = $db->query($sql1);
+        
+
+        if($stmtinsert) {
+            // echo "Success! Row ID: {$db->insert_id}";
+            $done = 1;
+        }
+        else {
+            die("Error: {$db->errno} : {$db->error}");
+        }
+        
+    }
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -89,7 +115,7 @@
                 <!--Card content-->
                 <div class="card-body d-sm-flex justify-content-between">
                     <h5 class="mb-1 mb-sm-0 pt-1">
-                        Hello CMS User, Welcome to Class Management System !
+                        Hello <?php echo $firstName . ' ' . $lastName?>, Welcome to Class Management System !
                     </h5>
                 </div>
             </div>
@@ -100,48 +126,47 @@
             <div class="row wow fadeIn">
 
                 <div class="col-md-6">
-                    <div class="card">
-                        <div class="card-body">
-                            <!-- Default form register -->
-                            <form class="text-center border border-light p-5" action="" method="post">
+                    <!-- <div class="card"> -->
+                    <!-- <div class="card-body"> -->
+                    <!-- Default form register -->
+                    <form class="text-center border border-light p-5" action="" method="post">
 
-                                <p class="h4 mb-4">Register Course</p>
+                        <p class="h4 mb-4">Register Course</p>
 
-                                <!-- Course Name -->
-                                <input type="text" name="courseName" id="defaultRegisterCourseYearPassword"
-                                    class="form-control" placeholder="Course Name"
-                                    aria-describedby="defaultRegisterFormCourseYearHelpBlock">
-                                <small id="defaultRegisterFormCourseYearHelpBlock" class="form-text text-muted mb-4">
-                                    Enter the complete course name
-                                </small>
+                        <!-- Course Name -->
+                        <input type="text" name="courseName" id="defaultRegisterCourseYearPassword" class="form-control"
+                            placeholder="Course Name" aria-describedby="defaultRegisterFormCourseYearHelpBlock">
+                        <small id="defaultRegisterFormCourseYearHelpBlock" class="form-text text-muted mb-4">
+                            Enter the complete course name
+                        </small>
 
-                                <div class="form-row mb-4">
-                                    <div class="col">
-                                        <!-- Course Year -->
-                                        <input type="text" name="courseYear" id="defaultRegisterFormCourseYear"
-                                            class="form-control" placeholder="Course Year (Semester No.)">
-                                    </div>
-                                    <div class="col">
-                                        <!-- Dummy -->
-                                        <input type="text" id="defaultRegisterFormDummy" class="form-control"
-                                            placeholder="Generated Course ID">
-                                    </div>
-                                </div>
-
-                                <!-- Submit button -->
-                                <button class="btn btn-info my-4 btn-block" type="submit">Submit</button>
-
-                                <!-- Terms of service -->
-                                <p>By clicking
-                                    <em>Sign up</em> you agree to your
-                                    <a href="" target="_blank">code of conduct</a>
-
-                            </form>
-                            <!-- Default form register -->
+                        <div class="form-row mb-4">
+                            <div class="col">
+                                <!-- Course Year -->
+                                <input type="text" name="courseYear" id="defaultRegisterFormCourseYear"
+                                    class="form-control" placeholder="Course Year (Semester No.)">
+                            </div>
+                            <div class="col">
+                                <!-- Dummy -->
+                                <input type="text" id="defaultRegisterFormDummy" name="courseID" class="form-control"
+                                    placeholder="Generated Course ID">
+                            </div>
                         </div>
 
+                        <!-- Submit button -->
+                        <button class="btn btn-info my-4 btn-block" name="courseRegister" type="submit">Submit</button>
 
-                    </div>
+                        <!-- Terms of service -->
+                        <p>By clicking
+                            <em>Sign up</em> you agree to your
+                            <a href="" target="_blank">code of conduct</a>
+
+                    </form>
+                    <!-- Default form register -->
+                    <!-- </div> -->
+
+
+                    <!-- </div> -->
                 </div>
 
                 <div class="col-md-6">
@@ -151,61 +176,49 @@
                             <span class="badge badge-pill badge-default"></span>
                         </div>
 
+                        <?php 
+                        if ($done == 1) {
+                            echo '<div class="alert alert-success" role="alert">
+                                    New Course inserted successfully
+                                </div>';
+                                $done = 0;
+                        }
+                        ?>
+
+
                         <!-- Table  -->
                         <table class="table table-hover">
                             <!-- Table body -->
                             <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Course Title 1</td>
-                                    <td>
-                                        This is a demo Course to be populated with content as it
-                                        arrives
-                                    </td>
-                                    <td>29-10-2020</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Course Title 2</td>
-                                    <td>This is a demo Course to be populated with content</td>
-                                    <td>29-10-2020</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Course Title 3</td>
-                                    <td>
-                                        This is a demo Course to be populated with content as it
-                                        arrives
-                                    </td>
-                                    <td>29-10-2020</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">4</th>
-                                    <td>Course Title 4</td>
-                                    <td>
-                                        This is a demo Course to be populated with content as it
-                                        arrives
-                                    </td>
-                                    <td>29-10-2020</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">5</th>
-                                    <td>Course Title 5</td>
-                                    <td>
-                                        This is a demo Course to be populated with content as it
-                                        arrives
-                                    </td>
-                                    <td>29-10-2020</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">6</th>
-                                    <td>Course Title 6</td>
-                                    <td>
-                                        This is a demo Course to be populated with content as it
-                                        arrives
-                                    </td>
-                                    <td>29-10-2020</td>
-                                </tr>
+
+                                <!-- Fetching registered courses from db -->
+
+                                <?php
+                                    $sql2 = "SELECT * from course";
+                                    
+                                        $result = $db->query($sql2);
+                                        if($result && $result->num_rows > 0) {
+                                                while($row = $result->fetch_assoc()) {
+                                                    echo "<tr>";
+                                                    echo "<th scope = 'row'>" . $row['id'] . "</th>";
+                                                    echo "<td>" . $row['courseID'] . "</th>";
+                                                    echo "<td>" . $row['courseName'] . "</td>";
+                                                    echo "<td>" . "29-10-2020" . "</td>";
+                                                    echo "</tr>";
+                                            }
+                        
+                                        }
+                                        else {
+                                            
+                                            echo '<div class="alert alert-warning" role="alert">
+                                                Sorry, No courses available
+                                                </div>';
+                                        }
+
+                                        $db->close();
+                        
+                                ?>
+
                             </tbody>
                             <!-- Table body -->
                         </table>
