@@ -14,6 +14,7 @@
 
     $firstName = $row['firstName'];
     $lastName = $row['lastName'];
+    $phone = $row['phone'];
     
     if(!isset($_SESSION['email'])){
         header("index.php");

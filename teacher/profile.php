@@ -1,6 +1,6 @@
 <?php
     require_once('../session.php');
-    $phone = $_SESSION['phone'];
+    // $phone = $_SESSION['phone'];
 
     if(isset($_POST["Confirm"])) {
         $newPassword = $_POST['newPassword'];
@@ -14,10 +14,10 @@
             $result = $db->query($sql);
 
             if(!$result) {
-                echo "Password Change Unsuccessful";
+                // echo "Password Change Unsuccessful";
             }
-            else
-                echo "Password Changed successfully";
+            else {}
+                // echo "Password Changed successfully";
         }
     }
 ?>
@@ -84,10 +84,10 @@
             </a>
 
             <div class="list-group list-group-flush">
-                <a href="./dashboard.php" class="list-group-item active waves-effect">
+                <a href="./dashboard.php" class="list-group-item list-group-item-action waves-effect">
                     <i class="fas fa-chart-pie mr-3"></i>Dashboard
                 </a>
-                <a href="#" class="list-group-item list-group-item-action waves-effect">
+                <a href="#" class="list-group-item active waves-effect">
                     <i class="fas fa-user mr-3"></i>Profile</a>
                 <a href="./createCourse.php" class="list-group-item list-group-item-action waves-effect">
                     <i class="fas fa-map mr-3"></i>Add New Course</a>
@@ -134,51 +134,52 @@
                         <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <h6 class="card-title">email : <?php echo $user_check?></h6><br>
-                                    <h6>Account Type : <?php echo $role ?></h6><br>
+                                    <h6 class="card-title">email : <?php echo $user_check;?></h6><br>
+                                    <h6>Account Type : <?php echo $role; ?></h6><br>
                                 </div>
                                 <div class="col-md-6">
-                                    <p class="card-text text-white">Phone Number : <?php $phone?></p>
+                                    <p class="card-text text-white">Phone Number : <?php echo $phone;?></p>
                                 </div>
                             </div>
                         </div>
                     </div>
                     <!-- student details end -->
-                    
-                        <!-- reset password  -->
-                        <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
+
+                    <!-- reset password  -->
+                    <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
                         <!-- Login Form -->
                         <h5>Change Password</h5>
                         <form class="text-center border border-light p-3" action="profile.php" method="post">
 
-                            
+
 
                             <!-- Password -->
                             <input type="password" name="newPassword" id="defaultLoginFormPassword"
                                 class="form-control mb-4" placeholder="New Password">
-                            
-                            <input type = "password" name = "confirmPassword" id = "defaultLoginFormPassword" 
+
+                            <input type="password" name="confirmPassword" id="defaultLoginFormPassword"
                                 class="form-control mb-4" placeholder="Confirm Password">
 
                             <div class="d-flex justify-content-around">
                                 <div>
                                     <!-- Remember me -->
-                                    
+
                                 </div>
-                               
+
                             </div>
 
                             <!-- Login button -->
-                            <button class="btn btn-info btn-block my-4" id = "Confirm" name="Confirm" type="submit">Confirm</button>
+                            <button class="btn btn-info btn-block my-4" id="Confirm" name="Confirm"
+                                type="submit">Confirm</button>
                         </form>
                         <!-- Login Form -->
-                        </div>
-                    
                     </div>
+
                 </div>
-                <!-- row ends -->
             </div>
-            <!-- container ends -->
+            <!-- row ends -->
+        </div>
+        <!-- container ends -->
         </div>
 
         <div class="container-fluid">
