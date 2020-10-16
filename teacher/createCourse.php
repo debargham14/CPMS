@@ -8,8 +8,9 @@
         $courseName = $_POST["courseName"];
         $courseYear = $_POST["courseYear"];
         $courseID   = $_POST["courseID"];
+        $name = $firstName.' '.$lastName;
         
-        $sql1 = "INSERT INTO course (courseName, courseYear, courseID) VALUES ('$courseName', '$courseYear', '$courseID')";
+        $sql1 = "INSERT INTO course (courseName, courseYear, courseID, createdBy) VALUES ('$courseName', '$courseYear', '$courseID', '$name')";
         $stmtinsert = $db->query($sql1);
         
 
@@ -191,6 +192,15 @@
                             <!-- Table body -->
                             <tbody>
 
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Course ID</th>
+                                        <th scope="col">Course Name</th>
+                                        <th scope="col">Created By</th>
+                                    </tr>
+                                </thead>
+
                                 <!-- Fetching registered courses from db -->
 
                                 <?php
@@ -203,7 +213,7 @@
                                                     echo "<th scope = 'row'>" . $row['id'] . "</th>";
                                                     echo "<td>" . $row['courseID'] . "</th>";
                                                     echo "<td>" . $row['courseName'] . "</td>";
-                                                    echo "<td>" . "29-10-2020" . "</td>";
+                                                    echo "<td>" . $row['createdBy'] . "</td>";
                                                     echo "</tr>";
                                             }
                         
