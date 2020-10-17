@@ -2,7 +2,7 @@
     // require_once('../config.php');
     require_once('../session.php');
     $name = $firstName.' '.$lastName;
-    
+    $email = $user_check;
     if(isset($_POST["noticeSubmit"])) {
         // echo "Data set is received from course entry";
         $degreeName = $_POST["degreeName"];
@@ -13,7 +13,7 @@
 
         $batchTarget = $degreeName.$deptName.$batchStartYear.$batchEndYear;
         
-        $sql1 = "INSERT INTO notice (content, batchTarget, postedBy) VALUES ('$content', '$batchTarget', '$name')";
+        $sql1 = "INSERT INTO notice (email, content, batchTarget, postedBy) VALUES ('$email', '$content', '$batchTarget', '$name')";
         $stmtinsert = $db->query($sql1);
         
 
@@ -199,57 +199,38 @@
                         <table class="table table-hover">
                             <!-- Table body -->
                             <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Notice Title 1</td>
-                                    <td>
-                                        This is a demo notice to be populated with content as it
-                                        arrives
-                                    </td>
-                                    <td>29-10-2020</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Notice Title 2</td>
-                                    <td>This is a demo notice to be populated with content</td>
-                                    <td>29-10-2020</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Notice Title 3</td>
-                                    <td>
-                                        This is a demo notice to be populated with content as it
-                                        arrives
-                                    </td>
-                                    <td>29-10-2020</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">4</th>
-                                    <td>Notice Title 4</td>
-                                    <td>
-                                        This is a demo notice to be populated with content as it
-                                        arrives
-                                    </td>
-                                    <td>29-10-2020</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">5</th>
-                                    <td>Notice Title 5</td>
-                                    <td>
-                                        This is a demo notice to be populated with content as it
-                                        arrives
-                                    </td>
-                                    <td>29-10-2020</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">6</th>
-                                    <td>Notice Title 6</td>
-                                    <td>
-                                        This is a demo notice to be populated with content as it
-                                        arrives
-                                    </td>
-                                    <td>29-10-2020</td>
-                                </tr>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Notice Content</th>
+                                        <th scope="col">Batch</th>
+                                        <th scope="col">Created At</th>
+                                    </tr>
+                                </thead>
+                                <?php
+                                    $sql = "SELECT * FROM notice WHERE email = '$user_check'";
+                                    $result = $db->query($sql);
+
+                                    if($result->num_rows > 0) {
+                                        
+                                        while($row = $result->fetch_assoc()) {
+                                            echo "<tr>";
+                                            echo "<th>" . $row['id'] . "</th>";
+                                            echo "<td>" . $row['content'] . "</td>";
+                                            echo "<td>" . $row['batchTarget'] . "</td>";
+                                            echo "<td>" . $row['createdAt'] . "</td>"; 
+                                            echo '<td>' . '<a href=""><i class="fas fa-pen"></i></a>' . '</td>'; 
+                                            echo '<td>' . '<a href=""><i class="fas fa-trash"></i></a>' . '</td>';
+                                            echo "</tr>"; 
+                                       } 
+                                       
+                                    }
+                                    else {
+                                        echo "No notice available.  Please add one";
+                                    }
+                                ?>
+
+
                             </tbody>
                             <!-- Table body -->
                         </table>

@@ -144,23 +144,23 @@
                             <!-- Department -->
                             <select class="browser-default custom-select mb-4" name="department">
                                 <option>Department</option>
-                                <option value="1">Computer Science and Engineering (CSE)</option>
-                                <option value="2">Mechanical Engineering (ME)</option>
-                                <option value="3">Sociology (Socio)</option>
-                                <option value="4">Lawra Lesson (LL)</option>
+                                <option value="CSE">Computer Science and Engineering (CSE)</option>
+                                <option value="ME">Mechanical Engineering (ME)</option>
+                                <option value="SOCIO">Sociology (Socio)</option>
+                                <option value="LL">Lawra Lesson (LL)</option>
                             </select>
 
                             <!-- Current Sem -->
                             <select class="browser-default custom-select mb-4" name="currentSem">
                                 <option>Current Sem</option>
-                                <option value="1">1</option>
-                                <option value="2">2</option>
-                                <option value="3">3</option>
-                                <option value="4">4</option>
-                                <option value="5">5</option>
-                                <option value="6">6</option>
-                                <option value="7">7</option>
-                                <option value="8">8</option>
+                                <?php 
+                                $i=1;
+                                while ($i<=8) {
+                                    echo '<option value="'.$i.'">Semester ' .$i.'</option>';
+                                    $i+=1;
+                                }
+                                ?>
+
                             </select>
 
                             <div class="form-row mb-4">
