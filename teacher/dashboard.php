@@ -1,5 +1,6 @@
 <?php
     require_once('../session.php');
+    $email = $user_check;
 ?>
 
 <!DOCTYPE html>
@@ -71,9 +72,9 @@
                     <i class="fas fa-user mr-3"></i>Profile</a>
                 <a href="./createCourse.php" class="list-group-item list-group-item-action waves-effect">
                     <i class="fas fa-map mr-3"></i>Add New Course</a>
-                <a href="createBatch.php" class="list-group-item list-group-item-action waves-effect">
+                <a href="./createBatch.php" class="list-group-item list-group-item-action waves-effect">
                     <i class="fas fa-users mr-3"></i>Add New Batch</a>
-                <a href="createSession.php" class="list-group-item list-group-item-action waves-effect">
+                <a href="./createSession.php" class="list-group-item list-group-item-action waves-effect">
                     <i class="fas fa-tv mr-3"></i>Schedule Session</a>
                 <a href="./createNotice.php" class="list-group-item list-group-item-action waves-effect">
                     <i class="fas fa-map mr-3"></i>Notice</a>
@@ -124,48 +125,57 @@
                         </div> -->
                     </div>
                     <!-- student details end -->
-                    <div class="card mt-3">
+                    <div class="col-md-12">
+                    <div class="card">
                         <div class="card-body">
-                            <h5 class="mb-1 mb-sm-0 pt-1">Upcoming Class Schedule</h5>
+                            <h5 class="mb-1 mb-sm-0 pt-1">Scheduled Sessions</h5>
+                            <span class="badge badge-pill badge-default">3 New</span>
                         </div>
+
                         <!-- Table  -->
                         <table class="table table-hover">
-                            <!-- Table head -->
-                            <thead class="blue lighten-4">
-                                <tr>
-                                    <th>#</th>
-                                    <th>Subject</th>
-                                    <th>Instructor</th>
-                                    <th>Time</th>
-                                </tr>
-                            </thead>
-                            <!-- Table head -->
-
                             <!-- Table body -->
                             <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Data Structure and Algorithms</td>
-                                    <td>Chandan Mazumdar</td>
-                                    <td>11:30 AM</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Computer Organization and Architecture</td>
-                                    <td>Ram Sarkar</td>
-                                    <td>3:30 PM</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Object Oriented Programming (C++)</td>
-                                    <td>Sanjoy Kumar Saha</td>
-                                    <td>5:30 PM</td>
-                                </tr>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Lecture Details</th>
+                                        <th scope = "col">Batch ID</th>
+                                        <th scope="col">Start Time</th>
+                                        <th scope="col">End Time</th>
+                                    </tr>
+                                </thead>
+                                <?php
+                                    $sql = "SELECT * FROM lecture WHERE email = '$user_check'";
+                                    $result = $db->query($sql);
+
+                                    if($result->num_rows > 0) {
+                                        
+                                        while($row = $result->fetch_assoc()) {
+                                            echo "<tr>";
+                                            echo "<th>" . $row['id'] . "</th>";
+                                            echo "<td>" . $row['lectureDetails'] . "</td>";
+                                            echo "<td>" . $row['batchID'] . "</td>";
+                                            echo "<td>" . $row['startTime'] . "</td>";
+                                            echo "<td>" . $row['endTime'] . "</td>"; 
+                                            echo '<td>' . '<a href=""><i class="fas fa-pen"></i></a>' . '</td>'; 
+                                            echo '<td>' . '<a href=""><i class="fas fa-trash"></i></a>' . '</td>';
+                                            echo "</tr>"; 
+                                       } 
+                                       
+                                    }
+                                    else {
+                                        echo "No notice available.  Please add one";
+                                    }
+                                ?>
+
+
                             </tbody>
                             <!-- Table body -->
                         </table>
                         <!-- Table  -->
                     </div>
+                </div>
                     <div class="row mt-3">
                         <div class="col-md-4">
                             <div class="card mt-3">
@@ -206,57 +216,38 @@
                         <table class="table table-hover">
                             <!-- Table body -->
                             <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Notice Title 1</td>
-                                    <td>
-                                        This is a demo notice to be populated with content as it
-                                        arrives
-                                    </td>
-                                    <td>29-10-2020</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Notice Title 2</td>
-                                    <td>This is a demo notice to be populated with content</td>
-                                    <td>29-10-2020</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Notice Title 3</td>
-                                    <td>
-                                        This is a demo notice to be populated with content as it
-                                        arrives
-                                    </td>
-                                    <td>29-10-2020</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">4</th>
-                                    <td>Notice Title 4</td>
-                                    <td>
-                                        This is a demo notice to be populated with content as it
-                                        arrives
-                                    </td>
-                                    <td>29-10-2020</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">5</th>
-                                    <td>Notice Title 5</td>
-                                    <td>
-                                        This is a demo notice to be populated with content as it
-                                        arrives
-                                    </td>
-                                    <td>29-10-2020</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">6</th>
-                                    <td>Notice Title 6</td>
-                                    <td>
-                                        This is a demo notice to be populated with content as it
-                                        arrives
-                                    </td>
-                                    <td>29-10-2020</td>
-                                </tr>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Notice Content</th>
+                                        <th scope="col">Batch</th>
+                                        <th scope="col">Created At</th>
+                                    </tr>
+                                </thead>
+                                <?php
+                                    $sql = "SELECT * FROM notice WHERE email = '$email'";
+                                    $result = $db->query($sql);
+
+                                    if($result->num_rows > 0) {
+                                        
+                                        while($row = $result->fetch_assoc()) {
+                                            echo "<tr>";
+                                            echo "<th>" . $row['id'] . "</th>";
+                                            echo "<td>" . $row['content'] . "</td>";
+                                            echo "<td>" . $row['batchTarget'] . "</td>";
+                                            echo "<td>" . $row['createdAt'] . "</td>"; 
+                                            echo '<td>' . '<a href=""><i class="fas fa-pen"></i></a>' . '</td>'; 
+                                            echo '<td>' . '<a href=""><i class="fas fa-trash"></i></a>' . '</td>';
+                                            echo "</tr>"; 
+                                       } 
+                                       
+                                    }
+                                    else {
+                                        echo "No notice available.  Please add one";
+                                    }
+                                ?>
+
+
                             </tbody>
                             <!-- Table body -->
                         </table>

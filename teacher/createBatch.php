@@ -94,7 +94,7 @@
                     <i class="fas fa-map mr-3"></i>Add New Course</a>
                 <a href="createBatch.php" class="list-group-item active waves-effect">
                     <i class="fas fa-users mr-3"></i>Add New Batch</a>
-                <a href="createSession.php" class="list-group-item list-group-item-action waves-effect">
+                <a href="./createSession.php" class="list-group-item list-group-item-action waves-effect">
                     <i class="fas fa-tv mr-3"></i>Schedule Session</a>
                 <a href="./createNotice.php" class="list-group-item list-group-item-action waves-effect">
                     <i class="fas fa-map mr-3"></i>Notice</a>
