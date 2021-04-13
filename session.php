@@ -14,7 +14,12 @@
 
     $firstName = $row['firstName'];
     $lastName = $row['lastName'];
+    
     $phone = $row['phone'];
+
+    if($role == 'student') {
+      $roll = $row['roll'];
+    }
     
     if(!isset($_SESSION['email'])){
         header("index.php");

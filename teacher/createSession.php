@@ -68,8 +68,8 @@
                     <!-- Right -->
                     <ul class="navbar-nav nav-flex-icons">
                         <li class="nav-item">
-                            <a href="" class="nav-link border border-light rounded waves-effect" target="_blank">
-                                <i class="fab fa-github mr-2"></i>CMS User
+                            <a href="../logout.php" class="nav-link border border-light rounded waves-effect" target="_blank">
+                                <i class="fab fa-github mr-2"></i>Sign Out
                             </a>
                         </li>
                     </ul>

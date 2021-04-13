@@ -10,7 +10,7 @@
             echo "Please enter the values correctly";
         }
         else {
-            $sql = "UPDATE teacher SET password = '$newPassword' WHERE email = '$user_check'";
+            $sql = "UPDATE student SET password = '$newPassword' WHERE email = '$user_check'";
             $result = $db->query($sql);
 
             if(!$result) {
@@ -48,7 +48,7 @@
             <div class="container-fluid">
                 <!-- Brand -->
                 <a class="navbar-brand waves-effect">
-                    <strong class="blue-text">Teacher Portal</strong>
+                    <strong class="blue-text">Student's Portal</strong>
                 </a>
 
                 <!-- Collapse -->
@@ -89,16 +89,16 @@
                 </a>
                 <a href="#" class="list-group-item active waves-effect">
                     <i class="fas fa-user mr-3"></i>Profile</a>
-                <a href="./createCourse.php" class="list-group-item list-group-item-action waves-effect">
+                <!-- <a href="./createCourse.php" class="list-group-item list-group-item-action waves-effect">
                     <i class="fas fa-map mr-3"></i>Add New Course</a>
                 <a href="./createBatch.php" class="list-group-item list-group-item-action waves-effect">
                     <i class="fas fa-users mr-3"></i>Add New Batch</a>
                 <a href="./createSession.php" class="list-group-item list-group-item-action waves-effect">
                     <i class="fas fa-tv mr-3"></i>Schedule Session</a>
                 <a href="./createNotice.php" class="list-group-item list-group-item-action waves-effect">
-                    <i class="fas fa-map mr-3"></i>Notice</a>
-                <a href="./attendance.php" class="list-group-item list-group-item-action waves-effect">
-                    <i class="fas fa-money-bill-alt mr-3"></i>Attendance</a>
+                    <i class="fas fa-map mr-3"></i>Notice</a> -->
+                <!-- <a href="./attendance.php" class="list-group-item list-group-item-action waves-effect">
+                    <i class="fas fa-money-bill-alt mr-3"></i>Attendance</a> -->
             </div>
         </div>
         <!-- Sidebar -->
@@ -136,6 +136,7 @@
                                 <div class="col-md-6">
                                     <h6 class="card-title">email : <?php echo $user_check;?></h6><br>
                                     <h6>Account Type : <?php echo $role; ?></h6><br>
+                                    <h6>Roll Number : <?php echo $roll; ?></h6></br>
                                 </div>
                                 <div class="col-md-6">
                                     <p class="card-text text-white">Phone Number : <?php echo $phone;?></p>
@@ -146,8 +147,6 @@
                     <!-- student details end -->
 
                     <!-- reset password  -->
-                    <div class="card-body d-sm-flex justify-content-between">
-                    <div class = "col-md-6">
                     <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
                         <!-- Login Form -->
                         <h5>Change Password</h5>
@@ -175,7 +174,7 @@
                                 type="submit">Confirm</button>
                         </form>
                         <!-- Login Form -->
-                    </div></div></div>
+                    </div>
 
                 </div>
             </div>
@@ -204,6 +203,7 @@
     // Animations initialization
     new WOW().init();
     </script>
+   
 </body>
 
 </html>

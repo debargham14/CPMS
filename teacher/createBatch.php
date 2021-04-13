@@ -67,8 +67,8 @@
                     <!-- Right -->
                     <ul class="navbar-nav nav-flex-icons">
                         <li class="nav-item">
-                            <a href="" class="nav-link border border-light rounded waves-effect" target="_blank">
-                                <i class="fab fa-github mr-2"></i>CMS User
+                            <a href="../logout.php" class="nav-link border border-light rounded waves-effect" target="_blank">
+                                <i class="fab fa-github mr-2"></i>Sign Out
                             </a>
                         </li>
                     </ul>
@@ -88,7 +88,7 @@
                 <a href="./dashboard.php" class="list-group-item list-group-item-action waves-effect">
                     <i class="fas fa-chart-pie mr-3"></i>Dashboard
                 </a>
-                <a href="#" class="list-group-item list-group-item-action waves-effect">
+                <a href="./profile.php" class="list-group-item list-group-item-action waves-effect">
                     <i class="fas fa-user mr-3"></i>Profile</a>
                 <a href="./createCourse.php" class="list-group-item list-group-item-action waves-effect">
                     <i class="fas fa-map mr-3"></i>Add New Course</a>
@@ -114,7 +114,7 @@
                 <!--Card content-->
                 <div class="card-body d-sm-flex justify-content-between">
                     <h5 class="mb-1 mb-sm-0 pt-1">
-                        Hello CMS User, Welcome to Class Management System !
+                        Hello <?php echo $firstName . " " . $lastName?>, Welcome to Class Management System !
                     </h5>
                 </div>
             </div>

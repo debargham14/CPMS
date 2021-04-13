@@ -71,8 +71,8 @@
                     <!-- Right -->
                     <ul class="navbar-nav nav-flex-icons">
                         <li class="nav-item">
-                            <a href="" class="nav-link border border-light rounded waves-effect" target="_blank">
-                                <i class="fab fa-github mr-2"></i>CMS User
+                            <a href="../logout.php" class="nav-link border border-light rounded waves-effect" target="_blank">
+                                <i class="fab fa-github mr-2"></i>Sign Out
                             </a>
                         </li>
                     </ul>
@@ -117,7 +117,7 @@
                 <!--Card content-->
                 <div class="card-body d-sm-flex justify-content-between">
                     <h5 class="mb-1 mb-sm-0 pt-1">
-                        Hello CMS User, Welcome to Class Management System !
+                        Hello <?php echo $firstName . " " . $lastName?>, Welcome to Class Management System !
                     </h5>
                 </div>
             </div>

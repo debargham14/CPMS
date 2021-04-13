@@ -1,3 +1,13 @@
+<?php
+    require_once('../session.php');
+    if(isset($_POST["Confirm"])){
+        $lectureID = $_POST['lectureID'];
+        session_start();
+        $_SESSION['lectureID'] = $lectureID;
+        header("location: showattendance.php");
+    }
+
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -42,8 +52,8 @@
                     <!-- Right -->
                     <ul class="navbar-nav nav-flex-icons">
                         <li class="nav-item">
-                            <a href="" class="nav-link border border-light rounded waves-effect" target="_blank">
-                                <i class="fab fa-github mr-2"></i>CMS User
+                            <a href="../logout.php" class="nav-link border border-light rounded waves-effect" target="_blank">
+                                <i class="fab fa-github mr-2"></i>Sign Out
                             </a>
                         </li>
                     </ul>
@@ -63,7 +73,7 @@
                 <a href="./dashboard.php" class="list-group-item list-group-item-action waves-effect">
                     <i class="fas fa-chart-pie mr-3"></i>Dashboard
                 </a>
-                <a href="#" class="list-group-item list-group-item-action waves-effect">
+                <a href="./profile.php" class="list-group-item list-group-item-action waves-effect">
                     <i class="fas fa-user mr-3"></i>Profile</a>
                 <a href="./createCourse.php" class="list-group-item list-group-item-action waves-effect">
                     <i class="fas fa-map mr-3"></i>Add New Course</a>
@@ -89,7 +99,7 @@
                 <!--Card content-->
                 <div class="card-body d-sm-flex justify-content-between">
                     <h5 class="mb-1 mb-sm-0 pt-1">
-                        Hello CMS User, Welcome to Class Management System !
+                        Hello <?php echo $firstName . ' ' . $lastName ?>, Welcome to Class Management System !
                     </h5>
                 </div>
             </div>
@@ -99,11 +109,11 @@
         <div class="container-fluid">
             <div class="row wow fadeIn">
 
-                <div class="col-md-12">
+                <!-- <div class="col-md-12">
                     <div class="card">
                         <div class="card-body">
                             <h5 class="mb-1 mb-sm-0 pt-1">Attendance Page</h5>
-                        </div>
+                        </div> -->
 
 
                     </div>
@@ -113,6 +123,127 @@
             <!-- container ends -->
         </div>
 
+
+
+        <div class = "col-md-12">
+        <div class="card">
+                        <div class="card-body">
+                            <h6 class="mb-1 mb-sm-0 pt-1">Scheduled Sessions</h6>
+                            <span class="badge badge-pill badge-default">3 New</span>
+                        </div>
+
+                        <!-- Table  -->
+                        <table class="table table-hover">
+                            <!-- Table body -->
+                            <tbody>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Lecture Details</th>
+                                        <th scope = "col">Batch ID</th>
+                                        <th scope="col">Start Time</th>
+                                        <th scope="col">End Time</th>
+                                    </tr>
+                                </thead>
+                                <?php
+                                    $sql = "SELECT * FROM lecture";
+                                    $result = $db->query($sql);
+
+                                    if($result->num_rows > 0) {
+                                        
+                                        while($row = $result->fetch_assoc()) {
+                                            $startMin = (string)date("Y-m-d") . 'T'. '12:00';
+                                            $startMax = (string)date("Y-m-d") . 'T'. '24:00';
+                                            $startTimeLecture = (string)$row['startTime'];
+                                            // echo $startMin . " " . $startTimeLecture . " " . $startMax . "<br>";
+                                            // echo strcmp($startTimeLecture, $startMin);
+                                            if(strcmp($startTimeLecture, $startMin) >= 0 && strcmp($startMax, $startTimeLecture) >= 0){
+                                                echo "<tr>";
+                                                echo "<th>" . $row['id'] . "</th>";
+                                                echo "<td>" . $row['lectureDetails'] . "</td>";
+                                                echo "<td>" . $row['batchID'] . "</td>";
+                                                echo "<td>" . $row['startTime'] . "</td>";
+                                                echo "<td>" . $row['endTime'] . "</td>"; 
+                                                // echo '<td>' . '<a href=""><i class="fas fa-pen"></i></a>' . '</td>'; 
+                                                // echo '<td>' . '<a href=""><i class="fas fa-trash"></i></a>' . '</td>';
+                                                echo "</tr>"; 
+                                            }
+                                       } 
+                                       
+                                    }
+                                    else {
+                                        echo "No notice available.  Please add one";
+                                    }
+                                ?>
+
+
+                            </tbody>
+                            <!-- Table body -->
+                        </table>
+                        <!-- Table  -->
+                    </div>
+                                </div>
+                    <div class="card-body d-sm-flex justify-content-between">
+                    <div class = "col-md-12">
+                    <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
+                        <!-- Login Form -->
+                        <h5>Show Attendance</h5>
+                        <form class="text-center border border-light p-3" action="attendance.php" method="post">
+
+
+
+                            <!-- Password -->
+                            <!-- <input type="password" name="newPassword" id="defaultLoginFormPassword"
+                                class="form-control mb-4" placeholder="New Password"> -->
+
+                            <input type="number" name="lectureID" id="lectureID"
+                                class="form-control mb-4" placeholder= "Enter Lecture id">
+
+                            <div class="d-flex justify-content-around">
+                                <div>
+                                    <!-- Remember me -->
+
+                                </div>
+
+                            </div>
+
+                            <!-- Login button -->
+                            <button class="btn btn-info btn-block my-4" id="Confirm" name="Confirm"
+                                type="submit">Show Attendance</button>
+                        </form>
+                        <!-- Login Form -->
+                    </div>
+                    <!-- <div class="row mt-3">
+                        <div class="col-md-4">
+                            <div class="card mt-3">
+                                <div class="card-body">
+                                    <h5 class="mb-1 mb-sm-0 pt-1">Students Enrolled</h5>
+                                    <h1>80</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card mt-3">
+                                <div class="card-body">
+                                    <h5 class="mb-1 mb-sm-0 pt-1">Instructors</h5>
+                                    <h1>5</h1>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="card mt-3">
+                                <div class="card-body">
+                                    <h5 class="mb-1 mb-sm-0 pt-1">Lectures Today</h5>
+                                    <h1>7</h1>
+                                </div>
+                            </div>
+                        </div>
+                    </div> -->
+
+                    <!-- column ends -->
+                </div>
+                    </div>
+                                </div>                
         <div class="container-fluid">
             <div class="row"></div>
         </div>

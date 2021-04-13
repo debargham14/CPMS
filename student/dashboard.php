@@ -1,7 +1,28 @@
 <?php
-include('../session.php');
+    require_once('../session.php');
+    $email = $user_check;
+    $name = $firstName . ' ' . $lastName;
+    if(isset($_POST["Confirm"])) {
+        $lectureID = $_POST['lectureID'];
+      
+        $sql0 = "SELECT * FROM attendance WHERE studentRoll = '$roll'";
+        $result = $db->query($sql0);
+        
+        if(!$result) {
+            $sql = "INSERT INTO attendance(lectureID, studentRoll, studentName) VALUES('$lectureID', '$roll', '$name')";
+            $result1 = $db->query($sql);
+            if($result1) {
+                //successful attendance 
+            }
+            else {
+                //unsuccessful attendance
+            }
+        }
+        else {
+            //already registered 
+        }
+    }
 ?>
-
 
 <!DOCTYPE html>
 <html lang="en">
@@ -29,7 +50,7 @@ include('../session.php');
             <div class="container-fluid">
                 <!-- Brand -->
                 <a class="navbar-brand waves-effect">
-                    <strong class="blue-text">Student Portal</strong>
+                    <strong class="blue-text">Student's Portal</strong>
                 </a>
 
                 <!-- Collapse -->
@@ -68,14 +89,18 @@ include('../session.php');
                 <a href="./dashboard.php" class="list-group-item active waves-effect">
                     <i class="fas fa-chart-pie mr-3"></i>Dashboard
                 </a>
-                <a href="#" class="list-group-item list-group-item-action waves-effect">
+                <a href="./profile.php" class="list-group-item list-group-item-action waves-effect">
                     <i class="fas fa-user mr-3"></i>Profile</a>
-                <a href="#" class="list-group-item list-group-item-action waves-effect">
-                    <i class="fas fa-table mr-3"></i>Classes</a>
-                <a href="./student/notice.php" class="list-group-item list-group-item-action waves-effect">
-                    <i class="fas fa-map mr-3"></i>Notices</a>
-                <a href="./student/attendance.php" class="list-group-item list-group-item-action waves-effect">
-                    <i class="fas fa-money-bill-alt mr-3"></i>Attendance</a>
+                <!-- <a href="./createCourse.php" class="list-group-item list-group-item-action waves-effect">
+                    <i class="fas fa-map mr-3"></i>Add New Course</a>
+                <a href="./createBatch.php" class="list-group-item list-group-item-action waves-effect">
+                    <i class="fas fa-users mr-3"></i>Add New Batch</a>
+                <a href="./createSession.php" class="list-group-item list-group-item-action waves-effect">
+                    <i class="fas fa-tv mr-3"></i>Schedule Session</a>
+                <a href="./createNotice.php" class="list-group-item list-group-item-action waves-effect">
+                    <i class="fas fa-map mr-3"></i>Notice</a> -->
+                <!-- <a href="./attendance.php" class="list-group-item list-group-item-action waves-effect">
+                    <i class="fas fa-money-bill-alt mr-3"></i>Attendance</a> -->
             </div>
         </div>
         <!-- Sidebar -->
@@ -90,7 +115,8 @@ include('../session.php');
                 <!--Card content-->
                 <div class="card-body d-sm-flex justify-content-between">
                     <h5 class="mb-1 mb-sm-0 pt-1">
-                        Hello <?php echo $row['firstName'].' '.$row['lastName']?>, Welcome to Class Management System !
+                        Hello <?php echo $row['firstName'].' '.$row['lastName'];
+                        ?>, Welcome to Class Management System !
                     </h5>
                 </div>
             </div>
@@ -104,10 +130,10 @@ include('../session.php');
                     <div class="card text-white bg-primary mb-3">
                         <div class="card-header">
                             <i class="far fa-user-circle"></i>
-                            <?php echo $row['firstName'].' '.$row['lastName']?>
+                            <?php echo $row['firstName'].' '.$row['lastName'];?>
                             <span class="badge badge-pill badge-success">Online</span>
                         </div>
-                        <div class="card-body">
+                        <!-- <div class="card-body">
                             <div class="row">
                                 <div class="col-md-6">
                                     <h5 class="card-title">Roll Number - 001910501000</h5>
@@ -117,52 +143,100 @@ include('../session.php');
                                     <p class="card-text text-white">Enrolment ID - A4785HH9</p>
                                 </div>
                             </div>
-                        </div>
+                        </div> -->
                     </div>
                     <!-- student details end -->
-                    <div class="card mt-3">
+                    <div class="col-md-12">
+                    <div class="card">
                         <div class="card-body">
-                            <h5 class="mb-1 mb-sm-0 pt-1">Upcoming Class Schedule</h5>
+                            <h5 class="mb-1 mb-sm-0 pt-1">Scheduled Sessions</h5>
+                            <span class="badge badge-pill badge-default">3 New</span>
                         </div>
+
                         <!-- Table  -->
                         <table class="table table-hover">
-                            <!-- Table head -->
-                            <thead class="blue lighten-4">
-                                <tr>
-                                    <th>#</th>
-                                    <th>Subject</th>
-                                    <th>Instructor</th>
-                                    <th>Time</th>
-                                </tr>
-                            </thead>
-                            <!-- Table head -->
-
                             <!-- Table body -->
                             <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Data Structure and Algorithms</td>
-                                    <td>Chandan Mazumdar</td>
-                                    <td>11:30 AM</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Computer Organization and Architecture</td>
-                                    <td>Ram Sarkar</td>
-                                    <td>3:30 PM</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Object Oriented Programming (C++)</td>
-                                    <td>Sanjoy Kumar Saha</td>
-                                    <td>5:30 PM</td>
-                                </tr>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Lecture Details</th>
+                                        <th scope = "col">Batch ID</th>
+                                        <th scope="col">Start Time</th>
+                                        <th scope="col">End Time</th>
+                                    </tr>
+                                </thead>
+                                <?php
+                                    $sql = "SELECT * FROM lecture";
+                                    $result = $db->query($sql);
+
+                                    if($result->num_rows > 0) {
+                                        
+                                        while($row = $result->fetch_assoc()) {
+                                            $startMin = (string)date("Y-m-d") . 'T'. '12:00';
+                                            $startMax = (string)date("Y-m-d") . 'T'. '24:00';
+                                            $startTimeLecture = (string)$row['startTime'];
+                                            // echo $startMin . " " . $startTimeLecture . " " . $startMax . "<br>";
+                                            // echo strcmp($startTimeLecture, $startMin);
+                                            if(strcmp($startTimeLecture, $startMin) >= 0 && strcmp($startMax, $startTimeLecture) >= 0){
+                                                echo "<tr>";
+                                                echo "<th>" . $row['id'] . "</th>";
+                                                echo "<td>" . $row['lectureDetails'] . "</td>";
+                                                echo "<td>" . $row['batchID'] . "</td>";
+                                                echo "<td>" . $row['startTime'] . "</td>";
+                                                echo "<td>" . $row['endTime'] . "</td>"; 
+                                                // echo '<td>' . '<a href=""><i class="fas fa-pen"></i></a>' . '</td>'; 
+                                                // echo '<td>' . '<a href=""><i class="fas fa-trash"></i></a>' . '</td>';
+                                                echo "</tr>"; 
+                                            }
+                                       } 
+                                       
+                                    }
+                                    else {
+                                        echo "No notice available.  Please add one";
+                                    }
+                                ?>
+
+
                             </tbody>
                             <!-- Table body -->
                         </table>
                         <!-- Table  -->
                     </div>
-                    <div class="row mt-3">
+                </div>
+                <div class="card-body d-sm-flex justify-content-between">
+                <div class = "col-md-12">
+              
+               
+                <div class="tab-pane fade show active" id="login" role="tabpanel" aria-labelledby="login-tab">
+                        <!-- Login Form -->
+                        <h5>Give Attendance</h5>
+                        <form class="text-center border border-light p-3" action="dashboard.php" method="post">
+
+
+
+                            <!-- Password -->
+                            <!-- <input type="password" name="newPassword" id="defaultLoginFormPassword"
+                                class="form-control mb-4" placeholder="New Password"> -->
+
+                            <input type="number" name="lectureID" id="lectureID"
+                                class="form-control mb-4" placeholder= "Enter Lecture id">
+
+                            <div class="d-flex justify-content-around">
+                                <div>
+                                    <!-- Remember me -->
+
+                                </div>
+
+                            </div>
+
+                            <!-- Login button -->
+                            <button class="btn btn-info btn-block my-4" id="Confirm" name="Confirm"
+                                type="submit">Confirm</button>
+                        </form>
+                        <!-- Login Form -->
+                    </div>
+                    <!-- <div class="row mt-3">
                         <div class="col-md-4">
                             <div class="card mt-3">
                                 <div class="card-body">
@@ -187,10 +261,10 @@ include('../session.php');
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
 
                     <!-- column ends -->
-                </div>
+                </div></div></div>
                 <div class="col-md-6">
                     <div class="card">
                         <div class="card-body">
@@ -202,57 +276,39 @@ include('../session.php');
                         <table class="table table-hover">
                             <!-- Table body -->
                             <tbody>
-                                <tr>
-                                    <th scope="row">1</th>
-                                    <td>Notice Title 1</td>
-                                    <td>
-                                        This is a demo notice to be populated with content as it
-                                        arrives
-                                    </td>
-                                    <td>29-10-2020</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">2</th>
-                                    <td>Notice Title 2</td>
-                                    <td>This is a demo notice to be populated with content</td>
-                                    <td>29-10-2020</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">3</th>
-                                    <td>Notice Title 3</td>
-                                    <td>
-                                        This is a demo notice to be populated with content as it
-                                        arrives
-                                    </td>
-                                    <td>29-10-2020</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">4</th>
-                                    <td>Notice Title 4</td>
-                                    <td>
-                                        This is a demo notice to be populated with content as it
-                                        arrives
-                                    </td>
-                                    <td>29-10-2020</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">5</th>
-                                    <td>Notice Title 5</td>
-                                    <td>
-                                        This is a demo notice to be populated with content as it
-                                        arrives
-                                    </td>
-                                    <td>29-10-2020</td>
-                                </tr>
-                                <tr>
-                                    <th scope="row">6</th>
-                                    <td>Notice Title 6</td>
-                                    <td>
-                                        This is a demo notice to be populated with content as it
-                                        arrives
-                                    </td>
-                                    <td>29-10-2020</td>
-                                </tr>
+                                <thead>
+                                    <tr>
+                                        <th scope="col">#</th>
+                                        <th scope="col">Notice Content</th>
+                                        <th scope="col">Batch</th>
+                                        <th scope="col">Created At</th>
+                                    </tr>
+                                </thead>
+                                <?php
+                                    $sql = "SELECT * FROM notice";
+                                    $result = $db->query($sql);
+
+                                    if($result->num_rows > 0) {
+                                        
+                                        while($row = $result->fetch_assoc()) {
+                                            
+                                            echo "<tr>";
+                                            echo "<th>" . $row['id'] . "</th>";
+                                            echo "<td>" . $row['content'] . "</td>";
+                                            echo "<td>" . $row['batchTarget'] . "</td>";
+                                            echo "<td>" . $row['createdAt'] . "</td>"; 
+                                            // echo '<td>' . '<a href=""><i class="fas fa-pen"></i></a>' . '</td>'; 
+                                            // echo '<td>' . '<a href=""><i class="fas fa-trash"></i></a>' . '</td>';
+                                            echo "</tr>"; 
+                                       } 
+                                       
+                                    }
+                                    else {
+                                        echo "No notice available.  Please add one";
+                                    }
+                                ?>
+
+
                             </tbody>
                             <!-- Table body -->
                         </table>
